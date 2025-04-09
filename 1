@@ -1,0 +1,15 @@
+import random
+objects = ["мама", "зошит", "баба яга"]
+answer = random.choice(objects)
+print("Вгадай,що я")
+tries = 0
+while tries < 3:
+    guess = input("Твоя версія: ").strip().lower()
+    if guess == answer:
+        print("Ти вгадав")
+        break
+    else:
+        print("Ні,ти близько" if tries > 2 else "Ні, спробуй ще")
+    tries += 1
+else:
+    print(f"Це було: {answer}")
