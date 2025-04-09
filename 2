@@ -1,0 +1,30 @@
+person = {
+    "name": "Шевченко",
+    "hints": [
+        "Він писав не тільки вірші, а й малював",
+        "Його звільнили з кріпацтва",
+        "Його портрет часто бачать у школах"
+    ]
+}
+
+import random
+print("Хто це?")
+
+hint_indexes = list(range(len(person["hints"])))
+random.shuffle(hint_indexes)
+shown = 0
+
+while True:
+    if shown < len(hint_indexes):
+        if random.random() > 0.5:
+            print("Підказка:", person["hints"][hint_indexes[shown]])
+            shown += 1
+    guess = input("Як ти думаєш: ").strip().lower()
+        continue
+    if "шевченко" in guess:
+        print("Ого, ти вгадав")
+        break
+    elif shown == len(hint_indexes):
+        print("Ну,пробуй ще")
+    else:
+        print("Ні")
